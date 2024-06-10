@@ -2,11 +2,11 @@
 
 - First link the 'instrumentation' library
 
-``` gcc -c instrumentation.c ```
+  - ``` gcc -c instrumentation.c ```
 
-```ar rvs instrumentation.a instrumentation.o```
+  - ```ar rvs instrumentation.a instrumentation.o```
 
-```mv instrumentation.a libinstrumentation.a``` (optional)
+  - ```mv instrumentation.a libinstrumentation.a``` (optional)
 
 - Second, build all application libraries w/ instrumentaion on
   -   Static library
@@ -17,6 +17,6 @@
 
 - Third, build the main source file and link it all
   
-```g++ -fno-permissive -g -finstrument-functions -ldl -Wl,--export-dynamic -L./ -L./.. main.cpp -o main -llib1 -linstrumentation```
+  - ```g++ -fno-permissive -g -finstrument-functions -ldl -Wl,--export-dynamic -L./ -L./.. main.cpp -o main -llib1 -linstrumentation```
 (export `LD_LIBRARY_PATH` in case of the dynamic linkage)
 
